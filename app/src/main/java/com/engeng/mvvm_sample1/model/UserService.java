@@ -9,7 +9,7 @@ import rx.Observable;
  * Created by moltak on 15. 3. 21..
  * read from -> http://jsonplaceholder.typicode.com/users
  */
-public interface RetrievingUserService {
+public interface UserService {
     @GET("/users")
     Observable<List<User>> get();
 }
