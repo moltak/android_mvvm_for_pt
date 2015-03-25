@@ -1,4 +1,4 @@
-package com.engeng.mvvm_sample1.presentationmodel;
+package com.engeng.mvvm_sample1.viewmodel;
 
 
 import com.engeng.mvvm_sample1.model.UserRestAdapter;
@@ -20,12 +20,12 @@ import rx.schedulers.Schedulers;
  * Created by moltak on 15. 3. 21..
  */
 @PresentationModel
-public class Sample2ActivityPresentationModel implements HasPresentationModelChangeSupport {
+public class Sample2ActivityViewModel implements HasPresentationModelChangeSupport {
     private PresentationModelChangeSupport changeSupport;
     private List<User> userList;
     private boolean isJunitTesting = false;
 
-    public Sample2ActivityPresentationModel() {
+    public Sample2ActivityViewModel() {
         changeSupport = new PresentationModelChangeSupport(this);
     }
 
@@ -45,12 +45,9 @@ public class Sample2ActivityPresentationModel implements HasPresentationModelCha
     }
 
     private Action1<List<User>> getUserResteivingListener() {
-        return new Action1<List<User>>() {
-            @Override
-            public void call(List<User> users) {
-                userList = users;
-                changeSupport.firePropertyChange("text");
-            }
+        return users -> {
+            userList = users;
+            changeSupport.firePropertyChange("text");
         };
     }
 

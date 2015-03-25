@@ -1,6 +1,6 @@
 package com.engeng.mvvm_sample1;
 
-import com.engeng.mvvm.presentationmodel.Sample2ActivityPresentationModel;
+import com.engeng.mvvm_sample1.viewmodel.Sample2ActivityViewModel;
 
 import org.junit.Test;
 import org.robobinding.property.PropertyChangeListener;
@@ -8,6 +8,7 @@ import org.robobinding.property.PropertyChangeListener;
 import java.util.concurrent.CountDownLatch;
 
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNot.not;
 
 /**
@@ -20,7 +21,7 @@ public class SampleActivity2PresentationModelTest {
         final CountDownLatch countDownLatch = new CountDownLatch(1);
 
         // given
-        Sample2ActivityPresentationModel presentationModel = new Sample2ActivityPresentationModel();
+        Sample2ActivityViewModel presentationModel = new Sample2ActivityViewModel();
         presentationModel.enableJunitTesting();
         presentationModel.getPresentationModelChangeSupport().addPropertyChangeListener(
                 "text",

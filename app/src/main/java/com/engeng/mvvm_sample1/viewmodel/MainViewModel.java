@@ -1,4 +1,4 @@
-package com.engeng.mvvm_sample1.presentationmodel;
+package com.engeng.mvvm_sample1.viewmodel;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,11 +14,11 @@ import org.robobinding.presentationmodel.PresentationModelChangeSupport;
  * Created by moltak on 15. 3. 21..
  */
 @PresentationModel
-public class MainPresentationModel implements HasPresentationModelChangeSupport {
+public class MainViewModel implements HasPresentationModelChangeSupport {
     private final PresentationModelChangeSupport changeSupport;
     private final Context context;
 
-    public MainPresentationModel(Context context) {
+    public MainViewModel(Context context) {
         changeSupport = new PresentationModelChangeSupport(this);
         this.context = context;
     }

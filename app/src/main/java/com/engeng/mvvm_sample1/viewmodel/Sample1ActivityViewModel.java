@@ -44,13 +44,10 @@ public class Sample1ActivityViewModel {
     }
 
     private Action1<List<User>> getUserResteivingListener() {
-        return new Action1<List<User>>() {
-            @Override
-            public void call(List<User> users) {
-                state = State.DONE;
-                userList = users;
-                listener.onStateChanged(state);
-            }
+        return users -> {
+            state = State.DONE;
+            userList = users;
+            listener.onStateChanged(state);
         };
     }
 
