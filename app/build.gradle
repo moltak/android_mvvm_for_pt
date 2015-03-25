@@ -1,3 +1,19 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'me.tatarka:gradle-retrolambda:2.5.0'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
 apply plugin: 'com.android.application'
 
 android {
@@ -26,9 +42,17 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.squareup.okhttp:mockwebserver:2.3.0'
+    compile 'com.squareup:otto:1.3.6'
+    compile 'com.squareup.dagger:dagger:1.2.2'
 
     compile 'io.reactivex:rxjava:1.0.8'
     compile 'io.reactivex:rxandroid:0.24.0'
+
+    compile("org.robobinding:robobinding:latest.integration:with-dependencies") {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+    apt "org.robobinding:codegen:latest.integration"
 
     testCompile 'junit:junit:4.12'
 }

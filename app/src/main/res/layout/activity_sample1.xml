@@ -1,21 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://robobinding.org/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
+    <TextView
+        android:id="@+id/textview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="sample 1"
-        bind:onClick="sample1"/>
+        android:layout_marginBottom="8dp"
+        android:text="nothing"
+        android:gravity="center"/>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="sample 2"
-        bind:onClick="sample2"/>
+        android:layout_height="wrap_content"
+        android:text="click"/>
 
 </LinearLayout>

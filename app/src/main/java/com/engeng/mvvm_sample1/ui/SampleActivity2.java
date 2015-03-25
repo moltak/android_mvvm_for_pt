@@ -5,19 +5,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
 import com.engeng.mvvm_sample1.R;
-import com.engeng.mvvm_sample1.presentationmodel.MainPresentationModel;
+import com.engeng.mvvm_sample1.presentationmodel.Sample2ActivityPresentationModel;
 
 import org.robobinding.binder.Binders;
 
-public class MainActivity extends ActionBarActivity {
+
+public class SampleActivity2 extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MainPresentationModel presentationModel = new MainPresentationModel(this);
+        Sample2ActivityPresentationModel presentationModel = new Sample2ActivityPresentationModel();
         View rootView = Binders.inflateAndBindWithoutPreInitializingViews(
                 this,
-                R.layout.activity_main,
+                R.layout.activity_sample2,
                 presentationModel);
         setContentView(rootView);
     }

@@ -10,7 +10,7 @@ import retrofit.client.OkClient;
 /**
  * Created by moltak on 15. 3. 21..
  */
-public class JsonAdapter {
+public class UserRestAdapter {
     public static RestAdapter getAdapter() {
         return new RestAdapter.Builder()
                 .setEndpoint("http://jsonplaceholder.typicode.com")
