@@ -1,7 +1,7 @@
 package com.engeng.mvvm_sample1;
 
-import com.engeng.mvvm_sample1.model.JsonSampleAdapter;
-import com.engeng.mvvm_sample1.model.RetrievingUserService;
+import com.engeng.mvvm_sample1.model.JsonAdapter;
+import com.engeng.mvvm_sample1.model.UserService;
 import com.engeng.mvvm_sample1.model.User;
 
 import org.junit.FixMethodOrder;
@@ -26,8 +26,8 @@ public class RestModelTest {
 
     @Test
     public void testShouldHas10Results() throws InterruptedException, ExecutionException {
-        Observable<List<User>> getUserService = JsonSampleAdapter.getAdapter()
-                .create(RetrievingUserService.class)
+        Observable<List<User>> getUserService = JsonAdapter.getAdapter()
+                .create(UserService.class)
                 .get();
         BlockingObservable<List<User>> blockingObservable = BlockingObservable.from(getUserService);
         Future<List<User>> future = blockingObservable.toFuture();

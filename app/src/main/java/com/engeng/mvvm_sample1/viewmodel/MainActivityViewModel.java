@@ -1,7 +1,7 @@
 package com.engeng.mvvm_sample1.viewmodel;
 
-import com.engeng.mvvm_sample1.model.JsonSampleAdapter;
-import com.engeng.mvvm_sample1.model.RetrievingUserService;
+import com.engeng.mvvm_sample1.model.JsonAdapter;
+import com.engeng.mvvm_sample1.model.UserService;
 import com.engeng.mvvm_sample1.model.User;
 import com.engeng.mvvm_sample1.viewmodel.action.ActionCommand;
 import com.engeng.mvvm_sample1.viewmodel.action.NothingAnyAction;
@@ -36,8 +36,8 @@ public class MainActivityViewModel {
         state = State.RETRIEVING;
         if(listener != null) listener.onStateChanged(state);
 
-        JsonSampleAdapter.getAdapter()
-                .create(RetrievingUserService.class)
+        JsonAdapter.getAdapter()
+                .create(UserService.class)
                 .get()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getSubscriber());
