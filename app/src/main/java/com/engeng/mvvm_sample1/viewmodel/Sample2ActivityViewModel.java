@@ -45,9 +45,12 @@ public class Sample2ActivityViewModel implements HasPresentationModelChangeSuppo
     }
 
     private Action1<List<User>> getUserResteivingListener() {
-        return users -> {
-            userList = users;
-            changeSupport.firePropertyChange("text");
+        return new Action1<List<User>>() {
+            @Override
+            public void call(List<User> users) {
+                userList = users;
+                changeSupport.firePropertyChange("text");
+            }
         };
     }
 
