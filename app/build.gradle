@@ -95,6 +95,8 @@ robolectric {
     }
 }
 
+coveralls.jacocoReportPath = "${project.buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+
 // Define coverage source.
 // If you have rs/aidl etc... add them here.
 def coverageSourceDirs = [

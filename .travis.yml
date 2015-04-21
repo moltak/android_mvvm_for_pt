@@ -6,9 +6,10 @@ android:
     - android-22
     - extra
 env:
+  global:
+    - TERM=dumb
   matrix:
     - ANDROID_SDKS=android-22,sysimg-22  ANDROID_TARGET=android-22  ANDROID_ABI=armeabi-v7a
-    - TERM=dumb
 
 notifications:
   email: false
