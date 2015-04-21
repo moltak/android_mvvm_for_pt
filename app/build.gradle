@@ -6,16 +6,16 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:1.1.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
-        classpath 'me.tatarka:gradle-retrolambda:2.5.0'
         classpath 'org.robolectric:robolectric-gradle-plugin:1.0.1'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.3.1'
     }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'org.robolectric'
 apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
 
 android {
     compileSdkVersion 22
