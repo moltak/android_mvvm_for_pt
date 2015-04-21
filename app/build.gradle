@@ -7,12 +7,14 @@ buildscript {
         classpath 'com.android.tools.build:gradle:1.1.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
         classpath 'me.tatarka:gradle-retrolambda:2.5.0'
+        classpath 'org.robolectric:robolectric-gradle-plugin:1.0.1'
     }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'org.robolectric'
 
 android {
     compileSdkVersion 22
@@ -20,7 +22,7 @@ android {
 
     defaultConfig {
         applicationId "com.engeng.mvvm_sample1"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -56,4 +58,32 @@ dependencies {
     apt "org.robobinding:codegen:latest.integration"
 
     testCompile 'junit:junit:4.12'
+    testCompile "org.robolectric:robolectric:2.4"
+}
+
+robolectric {
+    // Configure includes / excludes
+    include '**/*Test.class'
+    exclude '**/espresso/**/*.class'
+
+    // Configure max heap size of the test JVM
+    maxHeapSize = '2048m'
+
+    // Configure the test JVM arguments - Does not apply to Java 8
+    jvmArgs '-XX:MaxPermSize=512m', '-XX:-UseSplitVerifier'
+
+    // Specify max number of processes (default is 1)
+    maxParallelForks = 4
+
+    // Specify max number of test classes to execute in a test process
+    // before restarting the process (default is unlimited)
+    forkEvery = 150
+
+    // configure whether failing tests should fail the build
+    ignoreFailures true
+
+    // use afterTest to listen to the test execution results
+    afterTest { descriptor, result ->
+        println "Executing test for ${descriptor.name} with result: ${result.resultType}"
+    }
 }
