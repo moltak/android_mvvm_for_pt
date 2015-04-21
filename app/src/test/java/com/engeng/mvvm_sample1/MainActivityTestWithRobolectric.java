@@ -15,9 +15,9 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by moltak on 15. 4. 21..
  */
-@Config(manifest = "app/src/main/AndroidManifest.xml", emulateSdk=18)
+@Config(manifest = "app/src/main/AndroidManifest.xml", emulateSdk = 18, resourceDir = "res")
 @RunWith(RobolectricTestRunner.class)
-public class MainActivityTestWithRoboletric {
+public class MainActivityTestWithRobolectric {
 
     @Test
     public void shouldGetApplicationObject() {
